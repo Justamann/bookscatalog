@@ -1,0 +1,17 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+    <div class="main">
+        <div class="block1">
+            <h2>Книга: {{ book.name }}</h2>
+            <img src="/static/img/{{ book.preview }}" alt="">
+            <div class="author">
+                <p><strong>Автор:</strong> <a href="">{{ book.author }}</a></p>
+            </div>
+            <div class="descript">
+                <p><strong>Описание:</strong> {{ book.short_desc }}</p>
+                <p><strong>Тег:</strong> {% for tags in book.tag.all %} <i>{{ tags }}</i>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

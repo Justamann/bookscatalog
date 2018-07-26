@@ -1,0 +1,41 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}Главная{% endblock %}
+{% block content %}
+
+    <div class="main">
+        <h1>Каталог</h1>
+        {% if listtags %}
+            <p>Test</p>
+            {% for tags in listtags %}
+                <div>
+                    {{ tags.name }}{{ tags.description }}}
+                </div>
+
+
+            {% endfor %}
+        {% endif %}
+        <div class="block-count">
+            <div>
+                <ul>
+                    <li><strong>Всего книг на сайте:</strong> {{ num_books }}</li>
+                    <li><strong>Всего авторов на сайте:</strong> {{ num_authors }}</li>
+                    <li><strong>Книг содержащих слово "роман":</strong> {{ word_in_books }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form action="/registration/" method="post">
+            <label for="your_name">Ваше имя: </label>
+            <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+            <input type="submit" value="OK">
+        </form>
+    </div>
+    <div>
+        <p>first commit git flow</p>
+        <p>2</p>
+    </div>
+
+{% endblock %}
+

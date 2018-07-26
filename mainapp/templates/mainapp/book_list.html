@@ -1,0 +1,39 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="main">
+        <h1>Все книги</h1>
+
+        {% if book_list %}
+            {% for book in book_list %}
+                <div class="for-books">
+                    <div class="one-book">
+                        <div style="">
+                            <h3><a href="{{ book.get_absolute_url }}">{{ book.name }}</a></h3></div>
+                            <strong>Автор:</strong> ({{book.author}})
+                        <div style="">Дата публикации: {{ book.date }}</div>
+                        <div style="">
+                            <img src="/static/img/{{ book.preview }}" alt=""></div>
+
+                        <div>
+                             <p><strong>Краткое описание</strong></p>
+                             <p>{{ book.get_short_text}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {#        <ul>#}
+            {##}
+            {#          {% for book in book_list %}#}
+            {#          <li>#}
+            {#            <a href="{{ book.get_absolute_url }}">{{ book.name }}</a> ({{book.author}})#}
+            {#          </li>#}
+            {#          {% endfor %}#}
+            {##}
+            {#        </ul>#}
+        {% else %}
+            <p>Нет книг в данной библиотеке.</p>
+        {% endif %}
+    </div>
+{% endblock %}

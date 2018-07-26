@@ -1,0 +1,29 @@
+.cont{
+    margin-top: 150px;
+    margin-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.footer{
+    background-color: #222222;
+    margin-top: 30px;
+    width: auto;
+    border: 1px solid black;
+    height: 50px;
+}
+
+.main{
+    margin-top: 50px;
+}
+
+.block1{
+    margin-top: 150px;
+    padding-top: 30%;
+}

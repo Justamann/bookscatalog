@@ -1,0 +1,89 @@
+{% load staticfiles %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {#    <link rel="icon" href="../../../../favicon.ico">#}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    {#    <link rel="stylesheet" href="{% static '/style.css' %}" >#}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    {#    <link href="/static/style.css" rel="stylesheet">#}
+
+    <!-- Custom styles for this template -->
+    {#    <link href="jumbotron.css" rel="stylesheet">#}
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'mainapp:home' %}">Главная<span</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'mainapp:books' %}">Книги</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="{% url 'mainapp:authors' %}">Авторы</a>
+            </li>
+    </div>
+    </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Поиск" aria-label="Поиск">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+    </form>
+    </div>
+</nav>
+<div class="content">
+    {% block sidebar %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+    {% block pagination %}
+        {% if is_paginated %}
+            <div class="pagination">
+                      <span class="page-links">
+                          {% if page_obj.has_previous %}
+                              <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">предыщущая</a>
+                          {% endif %}
+                          <span class="page-current">
+                              Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+                          </span>
+                          {% if page_obj.has_next %}
+                              <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">следующая</a>
+                          {% endif %}
+                      </span>
+            </div>
+        {% endif %}
+    {% endblock %}
+</div>
+{% block footer %}
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; Книжный каталог 2018</p>
+        </div>
+    </footer>
+{% endblock %}
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+{#    <script src="../../assets/js/vendor/popper.min.js"></script>#}
+{#    <script src="../../dist/js/bootstrap.min.js"></script>#}
+</body>
+</html>
