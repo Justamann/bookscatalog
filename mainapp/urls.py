@@ -3,7 +3,7 @@ from mainapp import views
 
 app_name = 'mainapp'
 urlpatterns = [
-    url(r'^$', views.view_index, name='home'),
+    url(r'^catalog/', views.view_index, name='home'),
     url(r'^books/', views.BookListView.as_view(), name='books'),
     url(r'^authors/', views.AuthorsListView.as_view(), name='authors'),
     url(r'^book/(?P<pk>[0-9]+)/$', views.BookDetailView.as_view(), name='book'),
