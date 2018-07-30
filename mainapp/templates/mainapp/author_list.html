@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}Авторы{% endblock %}
+{% block content %}
+    <div class="main">
+        <h1>Все авторы</h1>
+        <div class="one-book">
+            {% if list_authors %}
+                <ul>
+
+                    {% for author in list_authors %}
+                        <li>
+                            <a href="{{ author.get_absolute_url }}">{{ author.surname }} {{ author.name }} {{ author.patronymic }}</a>
+                            <p><i>Телефон:</i> {{ author.email }}</p>
+                            <p><i>Email:</i> {{ author.email }}</p>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            {% else %}
+                <p>Авторов не найдено.</p>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,82 @@
+
+.cont {
+    margin-top: 150px;
+    margin-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.footer {
+    background-color: #222222;
+    margin-top: 40px;
+    width: 100%;
+    border: 1px solid black;
+    height: 55px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.main {
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.block1 {
+    margin-top: 15px;
+    /*padding-top: 10px;*/
+    /*padding: auto;*/
+    margin-left: 20px;
+}
+
+.footer-text {
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    margin: auto;
+
+}
+
+.descript {
+    margin: 10px;
+    margin-left: 15px;
+    padding-bottom: 30px;
+}
+
+.author {
+    margin-top: 10px;
+}
+
+/*.block-count{*/
+/*margin: 20px;*/
+/*padding-top: 50px;*/
+/*}*/
+
+.title-h1 {
+    margin-top: 150px;
+}
+
+.page-links {
+    margin-left: 20px;
+}
+
+.for-bookss{
+    float: left;
+    width: 200px
+}
+.one-book {
+    margin: 10px;
+    margin-bottom: 100px;
+}
+
+.pagination{
+    margin-bottom: 30px;
+    padding-bottom: 50px;
+}

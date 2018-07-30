@@ -1,0 +1,62 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}Главная{% endblock %}
+{% block content %}
+
+    <div class="main">
+        <h1>Каталог</h1>
+        {% if listtags %}
+            <p>Test</p>
+            {% for tags in listtags %}
+                <div>
+                    {{ tags.name }}{{ tags.description }}}
+                </div>
+
+
+            {% endfor %}
+        {% endif %}
+        <div class="block-count">
+            <div>
+                <ul>
+                    <li><strong>Всего книг на сайте:</strong> {{ num_books }}</li>
+                    <li><strong>Всего авторов на сайте:</strong> {{ num_authors }}</li>
+                    <li><strong>Книг содержащих слово "роман":</strong> {{ word_in_books }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form action="/registration/" method="post">
+            <label for="your_name">Ваше имя: </label>
+            <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+            <input type="submit" value="OK">
+        </form>
+    </div>
+   <div class="main">
+        <h1>Все книги</h1>
+
+        {% if book_list %}
+            {% for book in book_list %}
+                <div class="for-books">
+                    <div class="one-book">
+                        <div style="">
+                            <h3><a href="{{ book.get_absolute_url }}">{{ book.name }}</a></h3></div>
+                            <strong>Автор:</strong> ({{book.author}})
+                        <div style="">Дата публикации: {{ book.date }}</div>
+                        <div style="">
+                            <img src="/static/img/{{ book.preview }}" alt=""></div>
+
+                        <div>
+                             <p><strong>Краткое описание</strong></p>
+                             <p>{{ book.get_short_text}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет книг в данной библиотеке.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
+

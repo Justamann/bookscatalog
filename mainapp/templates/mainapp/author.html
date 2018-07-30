@@ -1,0 +1,21 @@
+{% extends 'mainapp/base.html' %}
+
+
+{% block content %}
+    <div class="main">
+        <div class="block1">
+            <h2>Автор: {{ author.surname }} {{ author.name }} {{ author.patronymic }}</h2>
+            <div class="descript">
+                <p><strong>Телефон:</strong>{{ author.phone }}</p>
+                <p><strong>email:</strong>{{ author.email }}</p>
+            </div>
+    {#        <div class="author">#}
+    {#            <p><strong>Автор:</strong> <a href="">{{ book.author }}</a></p>#}
+    {#        </div>#}
+    {#        <div class="descript">#}
+    {#            <p><strong>Тег:</strong> {% for tags in book.tag.all %} <i>{{ tags }}</i>{% if not forloop.last %},#}
+    {#            {% endif %}{% endfor %}</p>#}
+            </div>
+        </div>
+    </div>
+{% endblock %}
