@@ -12,8 +12,10 @@ def view_index(request):
     word_in_books = Book.objects.filter(short_desc__icontains='роман')
     word_in_books = ', '.join([book.name for book in word_in_books])
     view_books = Book.objects.all()
-    book_tags = Book.objects.filter(tag__name__icontains='Русская классика')
-    book_tags = ', '.join([book.name for book in book_tags])
+    book_tags_russ_classic = Book.objects.filter(tag__name__icontains='Русская классика')
+    book_tags_russ_classic = ', '.join([book.name for book in book_tags_russ_classic])
+    book_tags_russ_cyberpunk = Book.objects.filter(tag__name__icontains='Русская классика')
+    book_tags_russ_cyberpunk = ', '.join([book.name for book in book_tags_russ_cyberpunk])
 
     return render(
         request, 'mainapp/index.html',
@@ -21,7 +23,8 @@ def view_index(request):
                  'num_authors': num_authors,
                  'word_in_books': word_in_books,
                  'view_books': view_books,
-                 'book_tags': book_tags,
+                 'book_tags_russ_classic': book_tags_russ_classic,
+                 'book_tags_russ_cyberpunk': book_tags_russ_cyberpunk,
                  # 'word_search': word_search,
                  },
     )
