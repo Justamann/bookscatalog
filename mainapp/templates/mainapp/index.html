@@ -20,20 +20,39 @@
                 <ul>
                     <li><strong>Всего книг на сайте:</strong> {{ num_books }}</li>
                     <li><strong>Всего авторов на сайте:</strong> {{ num_authors }}</li>
-                    <li><strong>Книг содержащих слово "роман":</strong> {{ word_in_books }}</li>
+                    <li>
+                        <form action="">
+                            <label for="">Найти все книги содержащие слово:</label>
+{#                            <input type="text" value="{{ word_search }}>#}
+{#                            <input type="submit" value="OK">#}
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
+{#    <div>#}
+{#        <form action="/registration/" method="post">#}
+{#            <label for="your_name">Ваше имя: </label>#}
+{#            <input id="your_name" type="text" name="your_name" value="{{ current_name }}">#}
+{#            <input type="submit" value="OK">#}
+{#        </form>#}
+{#    </div>#}
     <div>
-        <form action="/registration/" method="post">
-            <label for="your_name">Ваше имя: </label>
-            <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-            <input type="submit" value="OK">
-        </form>
-    </div>
-    <div>
-        <h1>Авторы и книги:</h1>
+        <h2>Книги по жанрам:</h2>
+        <div><strong>Классика:</strong>
+            <p>{{ book_tags_russ_classic }}</p>
+            <strong>Киберпанк:</strong>
+            <p>{{ book_tags_russ_cyberpunk }}</p>
+        </div>
+        <div>
+{#            {%  if  %}#}
+{#            {% for book in view_books %}#}
+{#                <p>{{ book.name }}</p>#}
+{#            {% endfor %}#}
+
+
+        </div>
     </div>
 
 {% endblock %}

@@ -8,21 +8,24 @@ from mainapp.models import NameForm
 def view_index(request):
     num_books = Book.objects.all().count()
     num_authors = Author.objects.count()  # The 'all()' is implied by default.
+    # word_search =
     word_in_books = Book.objects.filter(short_desc__icontains='роман')
     word_in_books = ', '.join([book.name for book in word_in_books])
+    view_books = Book.objects.all()
+    book_tags_russ_classic = Book.objects.filter(tag__name__icontains='Русская классика')
+    book_tags_russ_classic = ', '.join([book.name for book in book_tags_russ_classic])
+    book_tags_russ_cyberpunk = Book.objects.filter(tag__name__icontains='Русская классика')
+    book_tags_russ_cyberpunk = ', '.join([book.name for book in book_tags_russ_cyberpunk])
 
-    # def show_all_books(request):
-    #     name_book = Book.name
-    #     view_books = Book.objects.all()
-    #     content = {'name_book': name_book, 'view_books': view_books}
-    #     return render(request, 'mainapp/index.html', content)
-
-    # Render the HTML template index.html with the data in the context variable
     return render(
         request, 'mainapp/index.html',
         context={'num_books': num_books,
                  'num_authors': num_authors,
                  'word_in_books': word_in_books,
+                 'view_books': view_books,
+                 'book_tags_russ_classic': book_tags_russ_classic,
+                 'book_tags_russ_cyberpunk': book_tags_russ_cyberpunk,
+                 # 'word_search': word_search,
                  },
     )
 
