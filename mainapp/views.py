@@ -14,7 +14,7 @@ def view_index(request):
     view_books = Book.objects.all()
     book_tags_russ_classic = Book.objects.filter(tag__name__icontains='Русская классика')
     book_tags_russ_classic = ', '.join([book.name for book in book_tags_russ_classic])
-    book_tags_russ_cyberpunk = Book.objects.filter(tag__name__icontains='Русская классика')
+    book_tags_russ_cyberpunk = Book.objects.filter(tag__name__icontains='Киберпанк')
     book_tags_russ_cyberpunk = ', '.join([book.name for book in book_tags_russ_cyberpunk])
 
     return render(
